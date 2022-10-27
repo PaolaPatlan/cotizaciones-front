@@ -1,0 +1,47 @@
+<h1>Productos</h1>
+
+<!-- Botón nuevo producto -->
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+
+  <button class="btn btn-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Agregar producto</button>
+
+</div>
+
+<!-- Formulario -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasRightLabel">Información del producto</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <form action="">
+
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput2" class="form-label">Precio</label>
+        <input type="text" class="form-control" id="exampleFormControlInput2">
+      </div>
+
+      <input class="btn btn-dark" type="submit" value="Aceptar">
+    </form>
+
+  </div>
+</div>
+
+<h3>Listado disponible</h3>
+<table class="table table-striped">
+ <thead>
+  <th>Nombre</th>
+  <th>Precio</th>
+ </thead>
+ <tbody>
+  <tr>
+    <td>ejemplo1</td>
+    <td> $1000</td>
+  </tr>
+ </tbody>
+</table>
+
