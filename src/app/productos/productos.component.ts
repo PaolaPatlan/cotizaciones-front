@@ -26,20 +26,15 @@ export class ProductosComponent implements OnInit {
 
   //Columnas de la tabla
   columnas = [
-    "nombre",
-    "precio"
+    'nombre',
+    'precio'
   ]
-
-
-
-
 
   constructor(private productoService : ProductoService) { }
 
   ngOnInit(): void {
 
-    this.dato = new MatTableDataSource([]);
-
+    console.log(this.consultarTodos)
 
   }
 
