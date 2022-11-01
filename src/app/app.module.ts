@@ -11,7 +11,7 @@ import { ProductosComponent } from './productos/productos.component';
 import { ProductoService } from './_services/producto.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTableModule} from '@angular/material/table';
-
+import { MatTableExporterModule } from "mat-table-exporter";
 
 
 
@@ -20,7 +20,7 @@ import {MatTableModule} from '@angular/material/table';
   declarations: [
     AppComponent,
     ManagedataComponent,
-    ProductosComponent
+    ProductosComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,6 +28,7 @@ import {MatTableModule} from '@angular/material/table';
     HttpClientModule,
     BrowserAnimationsModule,
     MatTableModule,
+    MatTableExporterModule
   ],
   providers: [ ProductoService ],
   bootstrap: [AppComponent]

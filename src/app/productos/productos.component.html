@@ -31,14 +31,35 @@
   </div>
 </div>
 
-<h3>Listado disponible</h3>
+<h3>Listado De Productos Disponible</h3>
+<div>
+  <button
+  class="btn btn-outline-primary"
+  type="button"
+  (click)="consultarTodos()"
+>
+  Mostar Productos
+</button>
+</div>
 <div class="card" style="width: 60%;" >
   <div class="card-body" >
     <div class="mat-elevation-z8">
-      <table>
-      </table>
+    <mat-table [dataSource]="dato">
+
+      <ng-container matColumnDef="nombre">
+        <mat-header-cell *matHeaderCellDef> Nombre Producto</mat-header-cell>
+          <mat-cell *matCellDef="dato" >{{dato.nombre}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="precio">
+        <mat-header-cell *matHeaderCellDef> Precio Producto</mat-header-cell>
+          <mat-cell *matCellDef="dato">{{dato.precio}} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="columnas"></mat-header-row>
+      <mat-row *matRowDef="row; columns: columnas"></mat-row>
+
+    </mat-table>
     </div>
   </div>
 </div>
-
-

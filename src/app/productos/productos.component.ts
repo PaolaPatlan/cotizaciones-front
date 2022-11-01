@@ -6,7 +6,7 @@ import { ProductoService } from '../_services/producto.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-productos',
@@ -19,24 +19,40 @@ export class ProductosComponent implements OnInit {
   dato!: MatTableDataSource<Productos>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+
+  datos1: Productos[];
+
+  dataArray:Productos[];
+
+  public productos:Productos[];
+
+
   pageSize = 5;
   i:number = 1;
   desde: number = 0;
   hasta: number = 5;
 
   //Columnas de la tabla
-  columnas = [
-    'nombre',
-    'precio'
-  ]
+  columnas? = [
+    "nombre",
+    "precio"
+  ];
 
-  constructor(private productoService : ProductoService) { }
+  constructor(
+    private productoService : ProductoService
+  
+    ) {
+    
+   }
 
   ngOnInit(): void {
 
-    console.log(this.consultarTodos)
-
+   // console.log(this.consultarTodos)
+    
+     console.info("Entro al componente Productos");
+      this.dato = new MatTableDataSource([]);
   }
+
 
   consultarTodos(){
 
@@ -44,6 +60,15 @@ export class ProductosComponent implements OnInit {
       this.dato = new MatTableDataSource(data.list);
       this.dato.paginator = this.paginator;
       this.dato.sort = this.sort;
+
+
+      Swal.fire({
+        icon: "success",
+        title: "Busqueda exitosa",
+        showConfirmButton: false,
+        timer: 2500,
+      });
+      console.info(data);
 
      })
   }
