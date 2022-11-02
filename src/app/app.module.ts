@@ -12,6 +12,7 @@ import { ProductoService } from './_services/producto.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTableModule} from '@angular/material/table';
 import { MatTableExporterModule } from "mat-table-exporter";
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -28,7 +29,8 @@ import { MatTableExporterModule } from "mat-table-exporter";
     HttpClientModule,
     BrowserAnimationsModule,
     MatTableModule,
-    MatTableExporterModule
+    MatTableExporterModule,
+    FormsModule
   ],
   providers: [ ProductoService ],
   bootstrap: [AppComponent]

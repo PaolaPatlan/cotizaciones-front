@@ -23,5 +23,12 @@ export class ProductoService {
 
   }
 
+  agregarProducto(producto:Productos):Observable<Response<Productos>>{
+
+    let url = 'http://localhost:8081/producto/guardarProducto';
+    return this.http.post<Response<Productos>>(url,producto);
+
+  }
+
 }
 

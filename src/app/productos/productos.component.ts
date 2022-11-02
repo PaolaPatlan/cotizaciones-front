@@ -2,13 +2,12 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Productos } from '../_modelos/Productos';
 import { ProductoService } from '../_services/producto.service';
 
-//Componentes de angular material
+//Componentes
 import { MatTableDataSource } from '@angular/material/table';
-import {MatTableModule} from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import Swal from "sweetalert2";
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-productos',
   templateUrl: './productos.component.html',
@@ -21,12 +20,7 @@ export class ProductosComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  datos1: Productos[];
-
-  dataArray:Productos[];
-
-  public productos:Productos[];
-
+  producto: Productos = new Productos();
 
   pageSize = 5;
   i:number = 1;
@@ -40,11 +34,8 @@ export class ProductosComponent implements OnInit {
   ];
 
   constructor(
-    private productoService : ProductoService
-
-    ) {
-
-   }
+    private productoService : ProductoService,
+    private router: Router) {}
 
   ngOnInit(): void {
 
@@ -71,6 +62,13 @@ export class ProductosComponent implements OnInit {
       console.info(data);
 
      })
+  }
+
+  guardarProducto(){
+
+    this.productoService.agregarProducto(this.producto).subscribe(
+      response => this.router.navigate(['/producto'])
+    )
   }
 }
 
