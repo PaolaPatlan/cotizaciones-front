@@ -67,8 +67,26 @@ export class ProductosComponent implements OnInit {
   guardarProducto(){
 
     this.productoService.agregarProducto(this.producto).subscribe(
-      response => this.router.navigate(['/producto'])
+      response => this.reload()
     )
+  }
+
+  reload(){
+
+    this.productoService.consultarProductos().subscribe(data =>{
+      this.dato = new MatTableDataSource(data.list);
+      this.dato.paginator = this.paginator;
+      this.dato.sort = this.sort;
+
+      Swal.fire({
+        icon: "success",
+        title: "",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+
+
+     })
   }
 }
 
