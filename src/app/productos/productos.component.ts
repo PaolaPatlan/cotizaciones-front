@@ -4,6 +4,7 @@ import { ProductoService } from '../_services/producto.service';
 
 //Componentes de angular material
 import { MatTableDataSource } from '@angular/material/table';
+import {MatTableModule} from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import Swal from "sweetalert2";
@@ -33,22 +34,22 @@ export class ProductosComponent implements OnInit {
   hasta: number = 5;
 
   //Columnas de la tabla
-  columnas? = [
+  columnas = [
     "nombre",
     "precio"
   ];
 
   constructor(
     private productoService : ProductoService
-  
+
     ) {
-    
+
    }
 
   ngOnInit(): void {
 
    // console.log(this.consultarTodos)
-    
+
      console.info("Entro al componente Productos");
       this.dato = new MatTableDataSource([]);
   }
@@ -60,7 +61,6 @@ export class ProductosComponent implements OnInit {
       this.dato = new MatTableDataSource(data.list);
       this.dato.paginator = this.paginator;
       this.dato.sort = this.sort;
-
 
       Swal.fire({
         icon: "success",

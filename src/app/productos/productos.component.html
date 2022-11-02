@@ -41,6 +41,8 @@
   Mostar Productos
 </button>
 </div>
+<br><br><br><br>
+
 <div class="card" style="width: 60%;" >
   <div class="card-body" >
     <div class="mat-elevation-z8">
@@ -48,12 +50,12 @@
 
       <ng-container matColumnDef="nombre">
         <mat-header-cell *matHeaderCellDef> Nombre Producto</mat-header-cell>
-          <mat-cell *matCellDef="dato" >{{dato.nombre}}</mat-cell>
+          <mat-cell *matCellDef="let dato" >{{dato.nombre}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="precio">
         <mat-header-cell *matHeaderCellDef> Precio Producto</mat-header-cell>
-          <mat-cell *matCellDef="dato">{{dato.precio}} </mat-cell>
+          <mat-cell *matCellDef="let dato">{{dato.precio}} </mat-cell>
       </ng-container>
 
       <mat-header-row *matHeaderRowDef="columnas"></mat-header-row>
