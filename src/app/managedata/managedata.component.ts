@@ -47,7 +47,10 @@ export class ManagedataComponent implements OnInit {
 
     const doc = new jsPDF();
 
-    doc.text("Hello world!", 10, 10);
-    doc.save("a4.pdf");
+     var contenido = document.getElementById('pdf').innerText;
+     var contenidoString = contenido;
+
+    doc.text(contenidoString, 10, 10);
+    doc.save("Cotización.pdf");
   }
 }
