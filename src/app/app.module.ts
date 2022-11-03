@@ -13,6 +13,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTableModule} from '@angular/material/table';
 import { MatTableExporterModule } from "mat-table-exporter";
 import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -30,7 +32,10 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     MatTableModule,
     MatTableExporterModule,
-    FormsModule
+    FormsModule,
+    MatFormFieldModule,
+    MatSelectModule
+
   ],
   providers: [ ProductoService ],
   bootstrap: [AppComponent]

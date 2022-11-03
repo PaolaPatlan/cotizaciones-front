@@ -21,6 +21,7 @@ export class ProductosComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   producto: Productos = new Productos();
+  elemento = [];
 
   pageSize = 5;
   i:number = 1;
@@ -34,18 +35,15 @@ export class ProductosComponent implements OnInit {
   ];
 
   constructor(
+
     private productoService : ProductoService,
     private router: Router) {}
 
   ngOnInit(): void {
 
-   // console.log(this.consultarTodos)
+  this.dato = new MatTableDataSource([]);}
 
-     console.info("Entro al componente Productos");
-      this.dato = new MatTableDataSource([]);
-  }
-
-
+  //Muestra todos los datos
   consultarTodos(){
 
     this.productoService.consultarProductos().subscribe(data =>{
@@ -60,10 +58,10 @@ export class ProductosComponent implements OnInit {
         timer: 2500,
       });
       console.info(data);
-
      })
   }
 
+  //Guardar nuevo registro
   guardarProducto(){
 
     this.productoService.agregarProducto(this.producto).subscribe(
@@ -71,6 +69,7 @@ export class ProductosComponent implements OnInit {
     )
   }
 
+  //Refrescar tabla después de agregar un nuevo registro
   reload(){
 
     this.productoService.consultarProductos().subscribe(data =>{
@@ -84,8 +83,6 @@ export class ProductosComponent implements OnInit {
         showConfirmButton: false,
         timer: 1500,
       });
-
-
      })
   }
 }
