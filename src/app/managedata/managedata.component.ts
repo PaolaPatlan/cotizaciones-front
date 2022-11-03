@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Productos } from '../_modelos/Productos';
 import { ProductoService } from '../_services/producto.service';
 import { MatTableDataSource } from '@angular/material/table';
+//PDF
+import { jsPDF } from "jspdf";
+
 
 
 
@@ -37,5 +40,14 @@ export class ManagedataComponent implements OnInit {
     this.productoService.consultarProductos().subscribe((data) => {
       this.elemento = data.list;
     });
+  }
+
+  //Crear pdf
+  crearFile(){
+
+    const doc = new jsPDF();
+
+    doc.text("Hello world!", 10, 10);
+    doc.save("a4.pdf");
   }
 }
