@@ -4,6 +4,8 @@ import { ProductoService } from '../_services/producto.service';
 import { MatTableDataSource } from '@angular/material/table';
 //PDF
 import { jsPDF } from "jspdf";
+import html2PDF from 'jspdf-html2canvas';
+
 
 
 
@@ -43,7 +45,7 @@ export class ManagedataComponent implements OnInit {
   }
 
   //Crear pdf
-  crearFile(){
+  /*crearFile(){
 
     const doc = new jsPDF();
 
@@ -52,5 +54,18 @@ export class ManagedataComponent implements OnInit {
 
     doc.text(contenidoString, 10, 10);
     doc.save("Cotización.pdf");
+  }*/
+  
+  generarPdf(){
+    html2PDF(document.getElementById('pdf'),{
+      allowTaint:true,
+      useCors: false,
+      scale: 1
+    }).then(function(canvas){
+      var img = canvas.toDataURL("image/png");
+      var doc = new jsPDF();
+      doc.addImage(img,'PNG',7,20,195,105);
+      doc.save("cotización.pdf");
+    })
   }
 }
