@@ -31,7 +31,6 @@ export class ProductosComponent implements OnInit {
   //Columnas de la tabla
   columnas = [
     "nombre",
-    "precio"
   ];
 
   constructor(
@@ -53,17 +52,16 @@ export class ProductosComponent implements OnInit {
 
       Swal.fire({
         icon: "success",
-        title: "Busqueda exitosa",
+        title: "",
         showConfirmButton: false,
         timer: 2500,
       });
-      console.info(data);
      })
   }
 
   //Guardar nuevo registro
   guardarProducto(){
-
+    
     this.productoService.agregarProducto(this.producto).subscribe(
       response => this.reload()
     )
