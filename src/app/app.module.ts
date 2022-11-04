@@ -34,7 +34,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatTableExporterModule,
     FormsModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+
 
   ],
   providers: [ ProductoService ],

@@ -61,7 +61,7 @@ export class ProductosComponent implements OnInit {
 
   //Guardar nuevo registro
   guardarProducto(){
-    
+
     this.productoService.agregarProducto(this.producto).subscribe(
       response => this.reload()
     )
