@@ -2,7 +2,7 @@
   padding-top: 20px;
 }
 #titulo{
-  color: rgb(255, 139, 93);
+  color: gray;
   font-size: 60px;
   font-weight: bold;
   padding-top: 70px;
@@ -20,6 +20,6 @@
   background-size: cover;
   background-repeat: no-repeat;
   margin: 0;
-  position: relative; 
+  position: relative;
 }
 
