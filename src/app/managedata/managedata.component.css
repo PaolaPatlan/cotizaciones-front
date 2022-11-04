@@ -7,3 +7,9 @@
 #txt1{
   font-weight: bold;
 }
+body
+{
+  background: url(/src/assets/img/grisnew.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}

@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { Productos } from '../_modelos/Productos';
 import { ProductoService } from '../_services/producto.service';
 import { MatTableDataSource } from '@angular/material/table';
 //PDF
 import { jsPDF } from "jspdf";
 import html2PDF from 'jspdf-html2canvas';
+import { __values } from 'tslib';
+import { DOCUMENT } from '@angular/common';
 
 
 
@@ -21,7 +23,22 @@ export class ManagedataComponent implements OnInit {
   producto: Productos = new Productos();
   elemento = [];
 
-  constructor(private productoService : ProductoService ) { }
+  precio;
+  cantidad;
+
+  columnas=[
+    'producto',
+    'precio',
+    'cantidad',
+    'subtotal',
+    
+  ];
+  document;
+
+  constructor(private productoService : ProductoService,
+    @Inject(DOCUMENT) document: Document) {
+      this.document= document;
+     }
 
   ngOnInit(): void {
 
@@ -41,6 +58,8 @@ export class ManagedataComponent implements OnInit {
   cargarCiclos() {
     this.productoService.consultarProductos().subscribe((data) => {
       this.elemento = data.list;
+      console.log(this.elemento);
+      console.log("algo esto", data);
     });
   }
 
@@ -68,4 +87,53 @@ export class ManagedataComponent implements OnInit {
       doc.save("cotización.pdf");
     })
   }
+
+//AGREGAR PRODUCTO EN LA TABLA//
+
+ 
+    
+  agregar(){
+  
+    var producto = this.document.getElementById("producto");
+    var precio = this.document.getElementById("precio");
+    var cantidad = this.document.getElementById("cantidad");
+
+          console.log(producto);
+          console.log(precio);
+          console.log(cantidad);
+
+    var datos = document.getElementById("tabla_productos");
+
+    var subtotal = this.precio * this.cantidad;
+
+
+    datos.innerHTML = `${datos}<tr><td>${producto.valueOf()}</td>`,
+                   ` <td>  ${precio.value()}  </td>`
+                  //  "<td>"  {{precio.valueOf()  "</td>"
+                  //  "<td>"  cantidad.valueOf()"</td>" 
+                  //  "<td>"  subtotal.valueOf()+ "</td>"
+                   "</tr>";
+
+
+
+    this.calcularTotal();
+  }
+
+  //CALCULAR TOTALES //
+
+  calcularTotal(){
+
+    var subtotales = document.getElementsByName("subtotal");
+    var total = document.getElementById("total");
+
+    var suma =0;
+
+    for(var i=0; i<subtotales.length; i++){
+      suma=suma +Number(subtotales[i].innerText)
+    }
+    total.innerText = "$" +suma;
+  }
+
+
+  
 }

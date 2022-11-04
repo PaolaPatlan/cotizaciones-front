@@ -1,5 +1,6 @@
 <br><br>
 <!-- div titulo -->
+<body id="fondo">
 <div class="row">
   <div class="col-4"></div>
   <br>
@@ -85,5 +86,147 @@
 
 
 
+<form class="" action="managedata.html" method="post">
+  <table>
+    <tr>
+      <td><label for=""> Productos</label></td>
+      <td>
+        <select id="producto" class="" name="producto">
+        <option *ngFor="let elemento of elemento" [value]="elemento.nombre"> {{elemento.nombre}}</option>
+      </select>
+    </td>
+    </tr>
+
+    <tr>
+      <td><label for=""> Precio</label></td>
+      <td> <input *ngFor="let elemento of elemento"  [value]="elemento.precio" > </td>
+    </tr>
+
+    <tr>
+      <td><label for=""> Cantidad</label></td>
+      <td><input   [(ngModel)]= "cantidad"    id="cantidad"  type="number" name="cantidad" [value]=""></td>
+    </tr>
+
+    <tr>
+     <td colspan="2">  <button type="button" class="btn btn-dark" name="button" (click)="agregar()"> Agregar Producto </button></td>
+
+    </tr>
+  </table>
+
+</form>
+
+<br><br><br>
 
 
+
+  <table style="border: 1;">
+
+      <thead>
+        <tr>
+          <th>Productos</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+          <th>Subtotal</th>
+        </tr>
+      </thead>
+
+      <tbody id="tabla_productos">
+        <tr></tr>
+
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <th colspan="3"> Total</th>
+          <th id="total">$ </th>
+        </tr>
+      </tfoot>
+
+
+    </table>
+
+  </body>
+
+
+    <!-- <mat-form-field appearance="fill">
+      <mat-label>Selecciona Tus Productos</mat-label>
+      <mat-select class=" " name="producto">
+        <mat-option *ngFor="let elemento of elemento" [value]="elemento.id" >
+          {{elemento.nombre}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-label for="" appearance="fill"> Ingresa Precio</mat-label>
+    <input  ([ngModel])= " precio" type="number" name="precio" value="precio" id="precio">
+
+      <mat-label for="" appearance="fill">  Ingresa Cantidad De Productos</mat-label>
+      <input   ([ngModel])= "cantidad" type="number"  name="cantidad" value="cantidad" id="cantidad">
+
+  <div>
+    <button type="button" class="btn btn-dark" name="button" (click)="agregar()"> Agregar Producto </button>
+  </div>
+
+  <br><br><br> -->
+
+  <!-- <div class="row">
+    <div class="col-2"></div>
+    <div class="col-4">
+      <h2>Cotización De Producto</h2>
+    </div>
+    <div class="col-2"></div>
+    <div class="col-2"></div>
+    <div class="col-2"></div>
+  </div>
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+      <div class="card" style="width: 70%;" >
+        <div class="card-body" >
+          <div class="mat-elevation-z8">
+          <mat-table [dataSource]="dato">
+
+            <ng-container matColumnDef="producto">
+              <mat-header-cell *matHeaderCellDef> Nombre Producto</mat-header-cell>
+                <mat-cell *matCellDef="let dato" >{{dato.nombre}}</mat-cell>
+                <mat-footer-cell *matFooterCellDef > Total</mat-footer-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="precio">
+              <mat-header-cell *matHeaderCellDef> Precio Producto</mat-header-cell>
+                <mat-cell *matCellDef="let dato" >{{dato.precio}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="cantidad">
+              <mat-header-cell *matHeaderCellDef> Cantidad Producto</mat-header-cell>
+                <mat-cell *matCellDef="let dato" >{{dato.cantidad}}</mat-cell>
+            </ng-container>
+
+
+            <ng-container matColumnDef="subtotal">
+              <mat-header-cell *matHeaderCellDef> Subtotal</mat-header-cell>
+                <mat-cell *matCellDef="let dato" >{{dato.subtotal}</mat-cell>
+                <mat-footer-cell *matFooterCellDef> {{dato.total}}</mat-footer-cell>
+            </ng-container>
+
+
+
+            <mat-header-row *matHeaderRowDef="columnas"></mat-header-row>
+            <mat-row *matRowDef="row; columns: columnas"></mat-row>
+
+          </mat-table>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-2"></div>
+  </div>
+
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+
+    <button type="button" class="btn btn-dark" (click)="generarPdf()">Exportar a pdf</button>
+
+  </div>
+
+  </div> -->
